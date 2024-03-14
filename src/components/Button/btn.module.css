@@ -1,0 +1,72 @@
+.btn {
+  color: white;
+  font-size: 16px;
+
+  border: none;
+  border-radius: 8px;
+
+  padding: 0.5rem 1.25rem;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: #006aba;
+}
+
+.btn-primary-disabled,
+.btn-primary-disabled:hover {
+  background-color: #49779b !important;
+}
+
+.btn-primary:hover {
+  background-color: #1b70b2;
+}
+
+.btn-secondary {
+  background-color: #3f3f3f;
+}
+
+.btn-secondary-disabled,
+.btn-secondary-disabled:hover {
+  background-color: #666666 !important;
+}
+
+.btn-secondary:hover {
+  background-color: #595858;
+}
+
+.btn-success {
+  background-color: #007306;
+}
+
+.btn-success-disabled,
+.btn-success-disabled:hover {
+  background-color: #5b905e !important;
+}
+
+.btn-success:hover {
+  background-color: #237827;
+}
+
+.btn-danger {
+  background-color: #a20000;
+}
+
+.btn-danger-disabled,
+.btn-danger-disabled:hover {
+  background-color: #9a4646 !important;
+}
+
+.btn-danger:hover {
+  background-color: #a12828;
+}
+
+.btn-primary-disabled:hover,
+.btn-secondary-disabled:hover,
+.btn-success-disabled:hover,
+.btn-danger-disabled:hover {
+  cursor: not-allowed;
+}
