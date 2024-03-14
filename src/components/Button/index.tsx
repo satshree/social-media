@@ -23,7 +23,12 @@ function Button(props: ButtonProps) {
   } ${props.disabled ? style[`btn-${btnProps.variant}-disabled`] : ""}`;
 
   return (
-    <button className={className} {...btnProps} onClick={handleClick}>
+    <button
+      className={className}
+      {...btnProps}
+      style={{ ...(props.style || {}) }}
+      onClick={handleClick}
+    >
       {children}
     </button>
   );
