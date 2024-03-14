@@ -5,8 +5,12 @@ import { ChangeEvent, useEffect, useState } from "react";
 
 function Input(props: InputProps) {
   const [value, updateValue] = useState("");
+  const [error, updateError] = useState(false);
+  const [errorText, updateErrorText] = useState("");
 
   useEffect(() => updateValue(props.value || ""), [props.value]);
+  useEffect(() => updateError(props.error || false), [props.error]);
+  useEffect(() => updateErrorText(props.errorText || ""), [props.errorText]);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (props.onChange) {
@@ -17,7 +21,7 @@ function Input(props: InputProps) {
   };
 
   const className = `${props.className || ""} ${style["input-control"]} ${
-    props.error ? style["input-control-error"] : ""
+    error ? style["input-control-error"] : ""
   }`;
   const placeholder = props.placeholder || "Enter Text Here...";
 
@@ -29,8 +33,8 @@ function Input(props: InputProps) {
         value={value}
         onChange={handleChange}
       />
-      {props.errorText ? (
-        <div className={style["input-error-text"]}>{props.errorText}</div>
+      {errorText ? (
+        <div className={style["input-error-text"]}>{errorText}</div>
       ) : null}
     </>
   );
