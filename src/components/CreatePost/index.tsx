@@ -45,6 +45,7 @@ function CreatePost(props: CreatePostProps) {
         id: Math.floor(Math.random() * 1000),
         title,
         content,
+        updated: new Date(),
       };
 
       props.onSubmit(post);
