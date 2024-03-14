@@ -5,7 +5,7 @@
   border: none;
   border-radius: 8px;
 
-  padding: 0.5rem 1.25rem;
+  padding: 0.5rem 0.75rem;
 }
 
 .btn:hover {
@@ -22,7 +22,7 @@
 }
 
 .btn-primary:hover {
-  background-color: #1b70b2;
+  background-color: #2578b8;
 }
 
 .btn-secondary {
