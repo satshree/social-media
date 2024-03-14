@@ -39,9 +39,8 @@ function Textarea(props: TextareaProps) {
           ...(props.style || {}),
           marginTop: props.label ? "0.5rem" : 0,
         }}
-      >
-        {value}
-      </textarea>
+        value={value}
+      ></textarea>
       {errorText ? (
         <div className={style["textarea-error-text"]}>{errorText}</div>
       ) : null}
