@@ -1,0 +1,11 @@
+.box {
+  border: 1px solid #c9c9c9;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.btn-box {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}

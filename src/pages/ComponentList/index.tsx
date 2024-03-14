@@ -1,4 +1,5 @@
 import Button from "../../components/Button";
+import CreatePost from "../../components/CreatePost";
 import Input from "../../components/Input";
 import Textarea from "../../components/Textarea";
 
@@ -7,6 +8,10 @@ function Components() {
     <div>
       <div>Component List</div>
       <br />
+      <div>
+        <CreatePost />
+      </div>
+      <hr />
       <div
         style={{
           display: "flex",
