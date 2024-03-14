@@ -1,0 +1,28 @@
+.textarea {
+  font-size: 16px;
+  font-family: "Inter", Helvetica, Arial, sans-serif;
+
+  width: 100%;
+  box-sizing: border-box;
+
+  border: 0.8px solid #c9c9c9;
+  border-radius: 8px;
+
+  padding: 0.75rem 1.25rem;
+  resize: none;
+}
+
+.textarea:focus-visible {
+  outline: #006aba auto 1px;
+}
+
+.textarea-error,
+.textarea-error:focus-visible {
+  outline: #bb1212 auto 1px;
+}
+
+.textarea-error-text {
+  color: #bb1212;
+  font-size: 12px;
+  margin-top: 0.5rem;
+}
