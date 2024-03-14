@@ -42,6 +42,7 @@ function CreatePost(props: CreatePostProps) {
 
     if (proceed && props.onSubmit) {
       const post: Post = {
+        id: Math.floor(Math.random() * 1000),
         title,
         content,
       };
