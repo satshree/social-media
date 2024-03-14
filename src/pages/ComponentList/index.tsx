@@ -1,6 +1,7 @@
 import Button from "../../components/Button";
 import CreatePost from "../../components/CreatePost";
 import Input from "../../components/Input";
+import Post from "../../components/Post";
 import Textarea from "../../components/Textarea";
 
 function Components() {
@@ -10,6 +11,27 @@ function Components() {
       <br />
       <div>
         <CreatePost />
+      </div>
+      <br />
+      <div>
+        <Post
+          post={{
+            id: 123,
+            title: "Test",
+            content:
+              "IJ(*H(*$HF($*FH($*H(F*$H($*HT(*$(*GH(FUNGIDUBIUENOI#J)(*#UJF(*HDJ(*EHV(ES*H O*SD&H(*$&FYS*($&FGHS*YFHSUDYBF",
+            updated: new Date(),
+          }}
+        />
+        <Post
+          post={{
+            id: 123,
+            title: "Test",
+            content:
+              "IJ(*H(*$HF($*FH($*H(F*$H($*HT(*$(*GH(FUNGIDUBIUENOI#J)(*#UJF(*HDJ(*EHV(ES*H O*SD&H(*$&FYS*($&FGHS*YFHSUDYBF",
+            updated: new Date(),
+          }}
+        />
       </div>
       <hr />
       <div

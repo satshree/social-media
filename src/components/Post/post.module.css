@@ -1,0 +1,31 @@
+.post {
+  border: 1px solid #c9c9c9;
+  border-radius: 8px;
+
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.post:first-child {
+  margin-top: 0;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header .title {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.header .meta {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.content {
+  margin-top: 1rem;
+}
