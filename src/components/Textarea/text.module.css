@@ -1,3 +1,8 @@
+.label {
+  /* font-size: 14px; */
+  margin-bottom: 0.5rem;
+}
+
 .textarea {
   font-size: 16px;
   font-family: "Inter", Helvetica, Arial, sans-serif;

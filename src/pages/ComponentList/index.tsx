@@ -1,5 +1,6 @@
 import Button from "../../components/Button";
 import Input from "../../components/Input";
+import Textarea from "../../components/Textarea";
 
 function Components() {
   return (
@@ -34,7 +35,19 @@ function Components() {
         <Input />
         <br />
         <br />
-        <Input error={true} errorText="This is an helper error text" />
+        <Input
+          label="Input"
+          error={true}
+          errorText="This is a helper error text"
+        />
+      </div>
+      <div>
+        <Textarea />
+        <Textarea
+          label="Textarea"
+          error={true}
+          errorText="This is a helper error text"
+        />
       </div>
     </div>
   );

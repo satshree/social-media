@@ -5,10 +5,12 @@ import style from "./text.module.css";
 
 function Textarea(props: TextareaProps) {
   const [value, updateValue] = useState("");
+  const [label, updateLabel] = useState("");
   const [error, updateError] = useState(false);
   const [errorText, updateErrorText] = useState("");
 
   useEffect(() => updateValue(props.value || ""), [props.value]);
+  useEffect(() => updateLabel(props.label || ""), [props.label]);
   useEffect(() => updateError(props.error || false), [props.error]);
   useEffect(() => updateErrorText(props.errorText || ""), [props.errorText]);
 
@@ -27,11 +29,16 @@ function Textarea(props: TextareaProps) {
 
   return (
     <>
+      {label ? <label className={style.label}>{label}</label> : null}
       <textarea
         className={className}
         placeholder={placeholder}
         onChange={handleChange}
         rows={props.rows || 5}
+        style={{
+          ...(props.style || {}),
+          marginTop: props.label ? "0.5rem" : 0,
+        }}
       >
         {value}
       </textarea>

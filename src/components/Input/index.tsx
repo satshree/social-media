@@ -5,10 +5,12 @@ import { ChangeEvent, useEffect, useState } from "react";
 
 function Input(props: InputProps) {
   const [value, updateValue] = useState("");
+  const [label, updateLabel] = useState("");
   const [error, updateError] = useState(false);
   const [errorText, updateErrorText] = useState("");
 
   useEffect(() => updateValue(props.value || ""), [props.value]);
+  useEffect(() => updateLabel(props.label || ""), [props.label]);
   useEffect(() => updateError(props.error || false), [props.error]);
   useEffect(() => updateErrorText(props.errorText || ""), [props.errorText]);
 
@@ -27,11 +29,16 @@ function Input(props: InputProps) {
 
   return (
     <>
+      {label ? <label className={style.label}>{label}</label> : null}
       <input
         className={className}
         placeholder={placeholder}
         value={value}
         onChange={handleChange}
+        style={{
+          ...(props.style || {}),
+          marginTop: props.label ? "0.5rem" : 0,
+        }}
       />
       {errorText ? (
         <div className={style["input-error-text"]}>{errorText}</div>
