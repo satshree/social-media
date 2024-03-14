@@ -1,5 +1,10 @@
 function Components() {
-  return <div>Components</div>;
+  return (
+    <div>
+      <div>Component List</div>
+      <br />
+    </div>
+  );
 }
 
 export default Components;

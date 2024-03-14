@@ -1,5 +1,15 @@
+import { Link } from "react-router-dom";
+
+import { getRoute } from "../../routes";
+
 function Home() {
-  return <div>Home</div>;
+  return (
+    <div>
+      Home
+      <br />
+      <Link to={getRoute("components").to}>Go to components</Link>
+    </div>
+  );
 }
 
 export default Home;
