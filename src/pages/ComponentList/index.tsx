@@ -1,4 +1,5 @@
 import Button from "../../components/Button";
+import Input from "../../components/Input";
 
 function Components() {
   return (
@@ -10,6 +11,7 @@ function Components() {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
+          flexWrap: "wrap",
         }}
       >
         <Button>Button</Button>
@@ -26,6 +28,13 @@ function Components() {
         <Button variant="danger" disabled={true}>
           Button
         </Button>
+      </div>
+      <br />
+      <div>
+        <Input />
+        <br />
+        <br />
+        <Input error={true} errorText="This is an helper error text" />
       </div>
     </div>
   );
