@@ -16,11 +16,11 @@
 
 .input-control-error,
 .input-control-error:focus-visible {
-  outline: #a20000 auto 1px;
+  outline: #bb1212 auto 1px;
 }
 
 .input-error-text {
-  color: #a20000;
+  color: #bb1212;
   font-size: 12px;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
