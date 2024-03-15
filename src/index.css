@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
+html,
+body {
+  height: 100%;
+}
+
 body {
   margin: 0;
   font-size: 16px;
@@ -7,6 +12,15 @@ body {
   background-color: #f8f8f8;
 }
 
+#root,
 .page {
-  padding: 1rem 3.5rem;
+  /* padding: 1rem 3.5rem; */
+  height: 100%;
+  position: relative;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

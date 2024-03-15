@@ -1,0 +1,30 @@
+.home-page {
+  padding: 100px 3.5rem 1rem;
+
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+
+  height: 100%;
+}
+
+.create-img {
+  width: 65%;
+}
+
+.empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  padding-top: 5rem;
+
+  /* font-size: 22px; */
+}
+
+.floating-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+}
