@@ -3,7 +3,7 @@ import { modalReducer, postReducer } from "./reducers";
 
 const rootReducer = combineReducers({
   modal: modalReducer,
-  post: postReducer,
+  posts: postReducer,
 });
 
 export default configureStore({
