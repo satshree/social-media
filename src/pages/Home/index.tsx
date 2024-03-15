@@ -1,4 +1,3 @@
-// import PostForm from "../../components/PostForm";
 import Post from "../../components/Post";
 
 import { Post as PostData } from "../../types/data";

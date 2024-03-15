@@ -1,5 +1,4 @@
 import Home from "./pages/Home";
-import Components from "./pages/ComponentList";
 import { ReactNode } from "react";
 
 type Route = {
@@ -13,11 +12,6 @@ const routes: Route[] = [
     to: "/",
     text: "home",
     element: <Home />,
-  },
-  {
-    to: "/components",
-    text: "components",
-    element: <Components />,
   },
 ];
 
