@@ -17,7 +17,7 @@ function Modal(props: ModalProps) {
   return (
     <div className={style.modal} style={{ display }}>
       <div className={style["modal-content"]}>
-        <span className="close" onClick={props.onClose}>
+        <span className={style["close"]} onClick={props.onClose}>
           &times;
         </span>
         {props.children}

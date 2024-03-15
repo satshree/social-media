@@ -14,20 +14,29 @@
   background-color: #fefefe;
   margin: 15% auto;
   padding: 20px;
-  border: 1px solid #888;
+  border: 1px solid #c9c9c9;
+  border-radius: 8px;
   width: 80%;
+  position: relative;
 }
 
 .close {
+  padding: 0 0.5rem 0.25rem;
+  border-radius: 4px;
+
   color: #aaa;
-  float: right;
   font-size: 28px;
-  font-weight: bold;
+  /* font-weight: bold; */
+
+  float: right;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
 }
 
 .close:hover,
 .close:focus {
-  color: black;
+  background-color: #f2f2f2;
   text-decoration: none;
   cursor: pointer;
 }

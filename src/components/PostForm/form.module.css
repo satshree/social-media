@@ -1,12 +1,13 @@
 .box {
-  border: 1px solid #c9c9c9;
-  border-radius: 8px;
+  /* border: 1px solid #c9c9c9;
+  border-radius: 8px; */
 
   padding: 1rem;
 
-  width: 75%;
+  /* width: 75%; */
+  /* width: 100%; */
 
-  background-color: #fff;
+  /* background-color: #fff; */
 }
 
 .btn-box {
