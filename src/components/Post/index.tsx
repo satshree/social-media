@@ -1,19 +1,25 @@
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { FiEdit, FiTrash } from "react-icons/fi";
 
 import Button from "../Button";
 
 import { PostProp } from "./types";
-import { Post as PostData } from "../../types/data";
+import { GlobalState, Post as PostData } from "../../types/data";
 
-import { setModalMode, setModalPostID, toggleModal } from "../../app/actions";
+import {
+  ActionTypes,
+  setModalMode,
+  setModalPostID,
+  toggleModal,
+} from "../../app/actions";
 import { parseTime } from "../../utils";
 
 import style from "./post.module.css";
 
 function Post(props: PostProp) {
   const post: PostData = props.post;
+  const allPosts = useSelector((state: GlobalState) => state.posts);
 
   const dispatch = useDispatch();
 
@@ -33,7 +39,15 @@ function Post(props: PostProp) {
     dispatch(toggleModal(true));
   };
 
-  const handleDelete = () => {};
+  const handleDelete = () => {
+    if (window.confirm("Are you sure you want to delete this post?")) {
+      const newPostList = allPosts.filter((p) => p.id !== post.id);
+      dispatch({
+        type: ActionTypes.PostList,
+        payload: newPostList,
+      });
+    }
+  };
 
   return (
     <div className={style.post}>
