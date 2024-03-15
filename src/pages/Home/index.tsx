@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { GlobalState, Post as PostData } from "../../types/data";
 
@@ -8,10 +9,17 @@ import create from "../../assets/create.svg";
 import style from "./home.module.css";
 import { ActionTypes } from "../../app/actions";
 import PostForm from "../../components/PostForm";
+import { sortPostByDate } from "../../utils";
 
 function Home() {
+  const [allPosts, updatePost] = useState<PostData[]>([]);
+
   const dispatch = useDispatch();
   const { posts, modal } = useSelector((state: GlobalState) => state);
+
+  useEffect(() => updatePost(posts), [posts]);
+
+  const getAllPosts = () => allPosts.sort(sortPostByDate);
 
   const closeModal = () => {
     dispatch({
@@ -44,7 +52,7 @@ function Home() {
 
   return (
     <div className={style["home-page"]}>
-      {posts.length === 0 ? (
+      {allPosts.length === 0 ? (
         <div className={style.empty}>
           <img
             className={style["create-img"]}
@@ -57,7 +65,7 @@ function Home() {
         </div>
       ) : (
         <>
-          {posts.map((post) => (
+          {getAllPosts().map((post) => (
             <Post key={post.id} post={post} />
           ))}
           <br />
