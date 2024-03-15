@@ -1,20 +1,27 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 
 import Button from "../Button";
 import Input from "../Input";
 import Textarea from "../Textarea";
 
-import { CreatePostProps } from "./types";
+import { PostFormProps } from "./types";
 import { Post } from "../../types/data";
 
-import style from "./create.module.css";
+import style from "./form.module.css";
 
-function CreatePost(props: CreatePostProps) {
+function PostForm(props: PostFormProps) {
   const [title, updateTitle] = useState("");
   const [content, updateContent] = useState("");
 
   const [titleError, setTitleError] = useState("");
   const [contentError, setContentError] = useState("");
+
+  useEffect(() => {
+    if (props.post) {
+      updateTitle(props.post.title || "");
+      updateContent(props.post.content || "");
+    }
+  }, []); // mount data for editing
 
   const handleTitleChange = (v: string) => {
     if (titleError) setTitleError("");
@@ -66,6 +73,7 @@ function CreatePost(props: CreatePostProps) {
         errorText={titleError}
       />
       <Textarea
+        label="Content"
         placeholder="Post Content ..."
         value={content}
         onChange={handleContentChange}
@@ -79,4 +87,4 @@ function CreatePost(props: CreatePostProps) {
   );
 }
 
-export default CreatePost;
+export default PostForm;

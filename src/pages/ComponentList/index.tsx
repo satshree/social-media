@@ -1,5 +1,5 @@
 import Button from "../../components/Button";
-import CreatePost from "../../components/CreatePost";
+import PostForm from "../../components/PostForm";
 import Input from "../../components/Input";
 import Post from "../../components/Post";
 import Textarea from "../../components/Textarea";
@@ -10,7 +10,7 @@ function Components() {
       <div>Component List</div>
       <br />
       <div>
-        <CreatePost />
+        <PostForm />
       </div>
       <br />
       <div>
