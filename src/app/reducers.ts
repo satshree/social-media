@@ -7,6 +7,7 @@ import {
 } from "./actions";
 
 const initialModalState = {
+  open: false,
   mode: "add",
   content: {
     id: 0,
@@ -23,7 +24,7 @@ export const modalReducer = (
 ) => {
   switch (action.type) {
     case ActionTypes.ModalMode:
-      return { ...state, mode: action.payload };
+      return { ...state, ...action.payload };
     case ActionTypes.ModalContent:
       return { ...state, content: action.payload };
     default:

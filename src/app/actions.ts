@@ -8,7 +8,10 @@ export enum ActionTypes {
 
 export interface ModalModeAction {
   type: ActionTypes.ModalMode;
-  payload: "add" | "edit";
+  payload: {
+    open: true | false;
+    mode: "add" | "edit";
+  };
 }
 
 export interface ModalContentAction {
@@ -21,7 +24,10 @@ export interface PostListAction {
   payload: Post[];
 }
 
-export const setModalMode = (mode: "add" | "edit"): ModalModeAction => ({
+export const setModalMode = (mode: {
+  open: true | false;
+  mode: "add" | "edit";
+}): ModalModeAction => ({
   type: ActionTypes.ModalMode,
   payload: mode,
 });
