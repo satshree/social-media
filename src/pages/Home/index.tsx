@@ -15,7 +15,8 @@ function Home() {
   const [allPosts, updatePost] = useState<PostData[]>([]);
 
   const dispatch = useDispatch();
-  const { posts, modal } = useSelector((state: GlobalState) => state);
+  const modal = useSelector((state: GlobalState) => state.modal);
+  const posts = useSelector((state: GlobalState) => state.posts);
 
   useEffect(() => updatePost(posts), [posts]);
 
@@ -41,11 +42,23 @@ function Home() {
     }); // clear out
   };
 
-  const addNewPost = (post: PostData) => {
-    dispatch({
-      type: ActionTypes.PostList,
-      payload: [...posts, post],
-    });
+  const handleModalSubmit = (post: PostData) => {
+    if (modal.mode === "add") {
+      dispatch({
+        type: ActionTypes.PostList,
+        payload: [...posts, post],
+      });
+    } else {
+      const newPostList = posts.map((p) => {
+        if (p.id === post.id) return post;
+        return p;
+      });
+
+      dispatch({
+        type: ActionTypes.PostList,
+        payload: newPostList,
+      });
+    }
 
     closeModal();
   };
@@ -76,7 +89,11 @@ function Home() {
       )}
 
       <Modal isOpen={modal.open} onClose={closeModal}>
-        <PostForm post={modal.content} onSubmit={addNewPost} />
+        <PostForm
+          post={modal.content}
+          editMode={modal.mode === "edit"}
+          onSubmit={handleModalSubmit}
+        />
       </Modal>
     </div>
   );

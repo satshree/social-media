@@ -21,7 +21,7 @@ function PostForm(props: PostFormProps) {
       updateTitle(props.post.title || "");
       updateContent(props.post.content || "");
     }
-  }, []); // mount data for editing
+  }, [props.post]); // mount data for editing
 
   const handleTitleChange = (v: string) => {
     if (titleError) setTitleError("");
@@ -49,7 +49,7 @@ function PostForm(props: PostFormProps) {
 
     if (proceed && props.onSubmit) {
       const post: Post = {
-        id: Math.floor(Math.random() * 1000),
+        id: props.post.id || Math.floor(Math.random() * 1000),
         title,
         content,
         updated: new Date(),
@@ -81,7 +81,9 @@ function PostForm(props: PostFormProps) {
         errorText={contentError}
       />
       <div className={style["btn-box"]}>
-        <Button type="submit">Post</Button>
+        <Button variant="success" type="submit">
+          {props.editMode ? "Save Changes" : "Post"}
+        </Button>
       </div>
     </form>
   );
