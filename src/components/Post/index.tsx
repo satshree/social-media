@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { FiEdit, FiTrash } from "react-icons/fi";
 
 import Button from "../Button";
 
@@ -28,8 +29,12 @@ function Post(props: PostProp) {
           <div className={style.meta}>You posted at {parseTime(updated)}</div>
         </div>
         <div className={style["btn-group"]}>
-          <Button style={{ marginRight: "0.5rem" }}>Edit</Button>
-          <Button variant="danger">Delete</Button>
+          <Button ghost={true}>
+            <FiEdit />
+          </Button>
+          <Button variant="danger" ghost={true}>
+            <FiTrash />
+          </Button>
         </div>
       </div>
       <div className={style.content}>{content}</div>
