@@ -19,7 +19,7 @@ const initialModalState = {
 const initialPostListState: Post[] = [];
 
 export const modalReducer = (
-  state = { initialModalState },
+  state = initialModalState,
   action: ModalModeAction | ModalContentAction
 ) => {
   switch (action.type) {
