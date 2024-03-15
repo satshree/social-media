@@ -9,7 +9,9 @@
 }
 
 .create-img {
-  width: 65%;
+  width: 50%;
+  max-width: 550px;
+  pointer-events: none;
 }
 
 .empty {
