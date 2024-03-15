@@ -9,12 +9,7 @@ export interface GlobalState {
   modal: {
     open: true | false;
     mode: "add" | "edit";
-    content: {
-      id: number;
-      title: string;
-      content: string;
-      updated: Date;
-    };
+    postToEdit: number;
   };
   posts: Post[];
 }

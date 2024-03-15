@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 
-import { ActionTypes } from "../../app/actions";
+import { toggleModal, setModalMode, setModalPostID } from "../../app/actions";
 
 import Button from "../Button";
 
@@ -10,23 +10,9 @@ function Header() {
   const dispatch = useDispatch();
 
   const handleCreatePost = () => {
-    dispatch({
-      type: ActionTypes.ModalContent,
-      payload: {
-        id: 0,
-        title: "",
-        content: "",
-        updated: new Date(),
-      },
-    });
-
-    dispatch({
-      type: ActionTypes.ModalMode,
-      payload: {
-        mode: "add",
-        open: true,
-      },
-    });
+    dispatch(setModalPostID(0));
+    dispatch(setModalMode("add"));
+    dispatch(toggleModal(true));
   };
 
   return (

@@ -1,32 +1,34 @@
 import { Post } from "../types/data";
-import {
-  ActionTypes,
-  ModalContentAction,
-  ModalModeAction,
-  PostListAction,
-} from "./actions";
+import { ActionTypes, ModalAction, PostListAction } from "./actions";
 
 const initialModalState = {
   open: false,
   mode: "add",
-  content: {
-    id: 0,
-    title: "",
-    content: "",
-    updated: new Date(),
-  },
+  postToEdit: 0,
 };
+
 const initialPostListState: Post[] = [];
 
 export const modalReducer = (
   state = initialModalState,
-  action: ModalModeAction | ModalContentAction
+  action: ModalAction
 ) => {
   switch (action.type) {
+    case ActionTypes.Modal:
+      return {
+        ...state,
+        open: action.payload,
+      };
     case ActionTypes.ModalMode:
-      return { ...state, ...action.payload };
+      return {
+        ...state,
+        mode: action.payload,
+      };
     case ActionTypes.ModalContent:
-      return { ...state, content: action.payload };
+      return {
+        ...state,
+        postToEdit: action.payload,
+      };
     default:
       return state;
   }

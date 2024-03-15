@@ -4,11 +4,11 @@ import { GlobalState, Post as PostData } from "../../types/data";
 
 import Post from "../../components/Post";
 import Modal from "../../components/Modal";
+import PostForm from "../../components/PostForm";
 
 import create from "../../assets/create.svg";
 import style from "./home.module.css";
-import { ActionTypes } from "../../app/actions";
-import PostForm from "../../components/PostForm";
+import { ActionTypes, toggleModal } from "../../app/actions";
 import { sortPostByDate } from "../../utils";
 
 function Home() {
@@ -22,24 +22,21 @@ function Home() {
 
   const getAllPosts = () => allPosts.sort(sortPostByDate);
 
-  const closeModal = () => {
-    dispatch({
-      type: ActionTypes.ModalMode,
-      payload: {
-        mode: "add",
-        open: false,
-      },
-    });
+  const getPost = (id: number) => {
+    for (let p of allPosts) {
+      if (id === p.id) return p;
+    }
 
-    dispatch({
-      type: ActionTypes.ModalContent,
-      payload: {
-        id: 0,
-        title: "",
-        content: "",
-        updated: new Date(),
-      },
-    }); // clear out
+    return {
+      id: 0,
+      title: "",
+      content: "",
+      updated: new Date(),
+    };
+  };
+
+  const closeModal = () => {
+    dispatch(toggleModal(false));
   };
 
   const handleModalSubmit = (post: PostData) => {
@@ -90,7 +87,7 @@ function Home() {
 
       <Modal isOpen={modal.open} onClose={closeModal}>
         <PostForm
-          post={modal.content}
+          post={getPost(modal.postToEdit)}
           editMode={modal.mode === "edit"}
           onSubmit={handleModalSubmit}
         />

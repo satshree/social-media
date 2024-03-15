@@ -1,16 +1,20 @@
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { FiEdit, FiTrash } from "react-icons/fi";
 
 import Button from "../Button";
 
 import { PostProp } from "./types";
+import { Post as PostData } from "../../types/data";
+
+import { setModalMode, setModalPostID, toggleModal } from "../../app/actions";
 import { parseTime } from "../../utils";
 
 import style from "./post.module.css";
-import { ActionTypes } from "../../app/actions";
 
 function Post(props: PostProp) {
+  const post: PostData = props.post;
+
   const dispatch = useDispatch();
 
   const [title, updateTitle] = useState("");
@@ -18,31 +22,17 @@ function Post(props: PostProp) {
   const [updated, updateUpdatedDate] = useState<Date>(new Date());
 
   useEffect(() => {
-    const { post } = props;
-
     updateTitle(post.title);
     updateContent(post.content);
     updateUpdatedDate(post.updated);
   }, [props.post]);
 
   const handleEdit = () => {
-    dispatch({
-      type: ActionTypes.ModalContent,
-      payload: {
-        id: props.post.id,
-        title,
-        content,
-        updated,
-      },
-    });
-    dispatch({
-      type: ActionTypes.ModalMode,
-      payload: {
-        mode: "edit",
-        open: true,
-      },
-    });
+    dispatch(setModalMode("edit"));
+    dispatch(setModalPostID(post.id));
+    dispatch(toggleModal(true));
   };
+
   const handleDelete = () => {};
 
   return (

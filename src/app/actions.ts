@@ -1,22 +1,21 @@
 import { Post } from "../types/data";
 
 export enum ActionTypes {
+  Modal = "MODAL",
   ModalMode = "MODAL_MODE",
   ModalContent = "MODAL_CONTENT",
   PostList = "POST_LIST",
 }
 
-export interface ModalModeAction {
-  type: ActionTypes.ModalMode;
-  payload: {
-    open: true | false;
-    mode: "add" | "edit";
-  };
-}
+export type ModalState = {
+  open: true | false;
+  mode: "add" | "edit";
+  postToEdit: number;
+};
 
-export interface ModalContentAction {
-  type: ActionTypes.ModalContent;
-  payload: Post;
+export interface ModalAction {
+  type: ActionTypes.Modal | ActionTypes.ModalMode | ActionTypes.ModalContent;
+  payload: ModalState;
 }
 
 export interface PostListAction {
@@ -24,20 +23,22 @@ export interface PostListAction {
   payload: Post[];
 }
 
-export const setModalMode = (mode: {
-  open: true | false;
-  mode: "add" | "edit";
-}): ModalModeAction => ({
+export const setModalMode = (mode: "add" | "edit") => ({
   type: ActionTypes.ModalMode,
   payload: mode,
 });
 
-export const setModalContent = (post: Post): ModalContentAction => ({
-  type: ActionTypes.ModalContent,
-  payload: post,
+export const toggleModal = (open: false | true) => ({
+  type: ActionTypes.Modal,
+  payload: open,
 });
 
-export const setPostList = (posts: Post[]): PostListAction => ({
-  type: ActionTypes.PostList,
-  payload: posts,
+export const setModalPostID = (id: number) => ({
+  type: ActionTypes.ModalContent,
+  payload: id,
 });
+
+// export const setPostList = (posts: Post[]): PostListAction => ({
+//   type: ActionTypes.PostList,
+//   payload: posts,
+// });
