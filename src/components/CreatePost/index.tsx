@@ -66,7 +66,6 @@ function CreatePost(props: CreatePostProps) {
         errorText={titleError}
       />
       <Textarea
-        label="Content"
         placeholder="Post Content ..."
         value={content}
         onChange={handleContentChange}

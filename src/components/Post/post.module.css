@@ -4,6 +4,8 @@
 
   padding: 1rem;
   margin-top: 1rem;
+
+  background-color: #fff;
 }
 
 .post:first-child {
