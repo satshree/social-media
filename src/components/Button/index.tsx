@@ -16,11 +16,10 @@ function Button(props: ButtonProps) {
     type: props.type || "button",
     variant: props.variant || "primary",
     disabled: props.disabled || false,
-    ghost: props.ghost || false,
   };
 
   const className = `${props.className || ""} ${style.btn} ${
-    btnProps.ghost
+    props.ghost
       ? style[`btn-${btnProps.variant}-outline`]
       : style[`btn-${btnProps.variant}`]
   } ${props.disabled ? style[`btn-${btnProps.variant}-disabled`] : ""}`;
